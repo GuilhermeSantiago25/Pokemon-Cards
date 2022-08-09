@@ -15,7 +15,7 @@ const Home: React.FC = () => {
             ? "Loading..."
             : error
             ? "Error"
-            : data && data.results.map((pokemon:any) => <p>{pokemon.name}</p>)}
+            : data && data.results.map((pokemon: Pokemon) => <p>{pokemon.name}</p>)}
         </p>
       </Box>
     </Container>
