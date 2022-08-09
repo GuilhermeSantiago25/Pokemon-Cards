@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Container, Box } from "@mui/material";
 import { useFetch } from "../../hooks/useFetch";
-import { Pokemon } from "../../types/@types";
+import { Result, Pokemon } from "../../types/@types";
 
 const Home: React.FC = () => {
-  const { data, error, loading } = useFetch<Pokemon[]>("pokemon/", "get");
+  const { data, error, loading } = useFetch<Result>("pokemon/", "get");
+  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   return (
     <Container>
       <Box>
-        <h1>Home</h1>
-        <p>Lista de Pokemon</p>
+        <h1>Pokedex</h1>
+        <p>Lista de Pokemons</p>
         <p>
           {loading
             ? "Loading..."

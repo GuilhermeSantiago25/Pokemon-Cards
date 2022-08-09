@@ -1,5 +1,11 @@
+export interface Result {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Pokemon[];
+}
+
 export interface Pokemon {
-  results?:                  Pokemon[];
   abilities?:                Ability[];
   base_experience?:          number;
   forms?:                    Species[];
