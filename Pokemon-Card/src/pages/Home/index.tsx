@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Box } from "@mui/material";
-import List from "../../components/List";
+import {List, Details} from "../../components";
 import { Pokemon } from "../../types/@types";
 
 const Home: React.FC = () => {
@@ -8,9 +8,13 @@ const Home: React.FC = () => {
   console.log(selectedPokemon);
   return (
     <Container>
-      <Box sx={{
-        display: "flex",
-      }} >
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Box>
           <h1>Pokedex</h1>
           <p>Lista de Pokemons</p>
@@ -19,7 +23,7 @@ const Home: React.FC = () => {
         <Box>
           <h1>Detalhes</h1>
           <p>Detalhes do Pokemon</p>
-          <p>{selectedPokemon?.name}</p>
+          <Details selectedPokemon={selectedPokemon}/>
         </Box>
       </Box>
     </Container>

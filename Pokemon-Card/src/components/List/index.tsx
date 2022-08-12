@@ -7,18 +7,12 @@ import {
   ListItemButton,
   Button,
 } from "@mui/material";
-import { Result, Pokemon } from "../../types/@types";
+import { Result, Pokemon, IProps } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
-
-interface IProps {
-  setSelectedPokemon: React.Dispatch<React.SetStateAction<Pokemon | null>>;
-  pokemon?: Pokemon;
-  Result?: Result;
-}
 
 const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
   const { data, error, loading } = useFetch<Result>("pokemon/", "get");
-  
+
   return (
     <Box>
       <MaterialList>
@@ -31,7 +25,7 @@ const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
               <ListItem key={pokemon.name} disablePadding>
                 <ListItemButton
                   onClick={() => {
-                    setSelectedPokemon(pokemon);
+                    setSelectedPokemon && setSelectedPokemon(pokemon);
                   }}
                 >
                   <ListItemText primary={pokemon.name} />
