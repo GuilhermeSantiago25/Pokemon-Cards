@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo } from "react";
 import {
   List as MaterialList,
   ListItem,
@@ -10,9 +10,14 @@ import {
 import { Result, Pokemon } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
 
-const List: React.FC = () => {
+interface IProps {
+  setSelectedPokemon: React.Dispatch<React.SetStateAction<Pokemon | null>>
+  pokemon?: Pokemon
+  Result?: Result
+}
+
+const List: React.FC<IProps> = ({setSelectedPokemon}) => {
   const { data, error, loading } = useFetch<Result>("pokemon/", "get");
-  const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   return (
     <Box>
       <MaterialList>
@@ -37,4 +42,4 @@ const List: React.FC = () => {
   );
 };
 
-export default List;
+export default memo(List);
