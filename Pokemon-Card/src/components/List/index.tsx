@@ -11,12 +11,12 @@ import { Result, Pokemon } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
 
 interface IProps {
-  setSelectedPokemon: React.Dispatch<React.SetStateAction<Pokemon | null>>
-  pokemon?: Pokemon
-  Result?: Result
+  setSelectedPokemon: React.Dispatch<React.SetStateAction<Pokemon | null>>;
+  pokemon?: Pokemon;
+  Result?: Result;
 }
 
-const List: React.FC<IProps> = ({setSelectedPokemon}) => {
+const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
   const { data, error, loading } = useFetch<Result>("pokemon/", "get");
   return (
     <Box>
@@ -28,7 +28,11 @@ const List: React.FC<IProps> = ({setSelectedPokemon}) => {
           : data &&
             data.results.map((pokemon: Pokemon) => (
               <ListItem key={pokemon.name} disablePadding>
-                <ListItemButton onClick={()=>{setSelectedPokemon(pokemon)}}>
+                <ListItemButton
+                  onClick={() => {
+                    setSelectedPokemon(pokemon);
+                  }}
+                >
                   <ListItemText primary={pokemon.name} />
                 </ListItemButton>
               </ListItem>
