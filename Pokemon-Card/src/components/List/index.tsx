@@ -18,6 +18,7 @@ interface IProps {
 
 const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
   const { data, error, loading } = useFetch<Result>("pokemon/", "get");
+  
   return (
     <Box>
       <MaterialList>
