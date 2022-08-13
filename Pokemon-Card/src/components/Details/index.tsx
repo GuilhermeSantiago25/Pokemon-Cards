@@ -26,6 +26,7 @@ const Details: React.FC<IProps> = ({ selectedPokemon }) => {
         variant="h5"
         component="h2"
         sx={{ textAlign: "center" }}
+        textTransform="capitalize"
       >
         {data?.name && data?.name}#{data?.id && data?.id}
       </Typography>

@@ -28,7 +28,7 @@ const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
                     setSelectedPokemon && setSelectedPokemon(pokemon);
                   }}
                 >
-                  <ListItemText primary={pokemon.name} />
+                  <ListItemText primary={pokemon.name} sx={{textTransform:'capitalize'}} />
                 </ListItemButton>
               </ListItem>
             ))}
