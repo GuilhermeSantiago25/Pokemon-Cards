@@ -5,9 +5,8 @@ import { Pokemon } from "../../types/@types";
 
 const Home: React.FC = () => {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-  console.log(selectedPokemon);
   return (
-    <Container>
+    <Container fixed>
       <Box
         sx={{
           display: "flex",
@@ -16,13 +15,9 @@ const Home: React.FC = () => {
         }}
       >
         <Box>
-          <h1>Pokedex</h1>
-          <p>Lista de Pokemons</p>
           <List setSelectedPokemon={setSelectedPokemon} />
         </Box>
         <Box>
-          <h1>Detalhes</h1>
-          <p>Detalhes do Pokemon</p>
           <Details selectedPokemon={selectedPokemon}/>
         </Box>
       </Box>
