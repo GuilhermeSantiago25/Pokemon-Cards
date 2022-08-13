@@ -12,7 +12,7 @@ const Details: React.FC<IProps> = ({ selectedPokemon }) => {
   );
 
   return (
-    <Card sx={{ width: 300 }}>
+    <Card sx={{ width: 300 }}  hidden={data? false : true}  component='div' >
       <CardMedia
         component="img"
         alt="Imagem Frontal"
