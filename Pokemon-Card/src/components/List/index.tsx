@@ -6,6 +6,7 @@ import {
   Box,
   ListItemButton,
   Button,
+  Card,
 } from "@mui/material";
 import { Result, Pokemon, IProps } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
@@ -14,8 +15,8 @@ const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
   const { data, error, loading } = useFetch<Result>("pokemon/", "get");
 
   return (
-    <Box>
-      <MaterialList>
+    <Card sx={{ width: 300, height: 537 }}>
+      <MaterialList sx={{maxHeight: '93%', overflow: "hidden"}}>
         {loading
           ? "Loading..."
           : error
@@ -28,16 +29,19 @@ const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
                     setSelectedPokemon && setSelectedPokemon(pokemon);
                   }}
                 >
-                  <ListItemText primary={pokemon.name} sx={{textTransform:'capitalize'}} />
+                  <ListItemText
+                    primary={pokemon.name}
+                    sx={{ textTransform: "capitalize" }}
+                  />
                 </ListItemButton>
               </ListItem>
             ))}
       </MaterialList>
-      <Box>
+      <Box display="flex" justifyContent={'center'} >
         <Button>Anterior</Button>
         <Button>Próxima</Button>
       </Box>
-    </Box>
+    </Card>
   );
 };
 

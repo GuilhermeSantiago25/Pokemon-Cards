@@ -30,14 +30,26 @@ const Details: React.FC<IProps> = ({ selectedPokemon }) => {
       >
         {data?.name && data?.name}#{data?.id && data?.id}
       </Typography>
-      <Stack direction="row" spacing={2} marginX={1} sx={{ justifyContent: "center"}}>
+      <Stack
+        direction="row"
+        spacing={2}
+        marginX={1}
+        sx={{ justifyContent: "center" }}
+      >
         {data?.types &&
-          data?.types.map((type: any) => <Item>{type.type.name}</Item>)}
+          data?.types.map((type: any) => (
+            <Item key={type.type.name}>{type.type.name}</Item>
+          ))}
       </Stack>
       <CardContent>
         {data?.stats &&
           data?.stats.map((stats: any) => (
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              key={stats.stat.name}
+            >
               {stats.stat.name}-{stats.base_stat}
             </Typography>
           ))}
