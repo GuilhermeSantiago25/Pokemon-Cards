@@ -7,6 +7,7 @@ import {
   ListItemButton,
   Button,
   Card,
+  Typography,
 } from "@mui/material";
 import { Result, Pokemon, IProps } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
@@ -15,26 +16,32 @@ import { LoaderAnimation } from "../index";
 const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
   const [offset, setOffset] = useState(0);
   const { data, error, loading } = useFetch<Result>(
-    `pokemon?limit=10&offset=${offset}/`,
+    `pokemon?limit=12&offset=${offset}/`,
     "get"
   );
 
   const nextPage = () => {
-    setOffset(offset + 10);
+    setOffset(offset + 12);
   };
   const prevPage = () => {
-    if (offset > 10) {
-      setOffset(offset - 10);
+    if (offset > 12) {
+      setOffset(offset - 12);
     } else {
       setOffset(0);
     }
   };
 
   return (
-    <Card sx={{ width: 300, height: 537 }}>
-      <MaterialList sx={{ maxHeight: "93%", overflow: "hidden" }}>
+    <Card sx={{ width: 300, height: 635 }}>
+      <Typography 
+          variant="h6"
+          color="primary"
+          component="p"
+          sx={{ alignSelf: "center", textAlign: "center" }}
+      >Pokemons</Typography>
+      <MaterialList sx={{ maxHeight: "90%", overflow: "hidden" }}>
         {loading ? (
-          <Box sx={{ width: 300, height: 480 }}>
+          <Box sx={{ width: 300, height: 576 }}>
             <LoaderAnimation />
           </Box>
         ) : error ? (
