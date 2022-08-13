@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React, { useState, memo } from "react";
 import { Card, CardContent, CardMedia, Typography, Stack } from "@mui/material";
 
-import { Item } from "../Item";
-import { Result, Pokemon, IProps } from "../../types/@types";
+import { Item } from "../index";
+import { Pokemon, IProps } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
 
 const Details: React.FC<IProps> = ({ selectedPokemon }) => {
