@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { useState,memo } from "react";
 import {
   List as MaterialList,
   ListItem,
@@ -12,7 +12,19 @@ import { Result, Pokemon, IProps } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
 
 const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
-  const { data, error, loading } = useFetch<Result>("pokemon/", "get");
+  const [offset, setOffset] = useState(0);
+  const { data, error, loading } = useFetch<Result>(`pokemon?limit=10&offset=${offset}/`, "get");
+
+  const nextPage = () => {
+    setOffset(offset + 10);
+  }
+  const prevPage = () => {
+    if(offset > 10) {
+    setOffset(offset - 10);
+    } else {
+      setOffset(0);
+    }
+  }
 
   return (
     <Card sx={{ width: 300, height: 537 }}>
@@ -38,8 +50,8 @@ const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
             ))}
       </MaterialList>
       <Box display="flex" justifyContent={'center'} >
-        <Button>Anterior</Button>
-        <Button>Próxima</Button>
+        <Button onClick={prevPage}>Anterior</Button>
+        <Button onClick={nextPage}>Próxima</Button>
       </Box>
     </Card>
   );
