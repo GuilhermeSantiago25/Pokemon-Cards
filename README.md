@@ -17,7 +17,7 @@ Antes de iniciar, se assegure que possui os requisitos abaixo:
 
 - `nodeJS` 
 - `npm v8.9.0`
-""
+
 ## Compilação/Configuração
 
 Para compilar/configurar este projeto, siga as seguintes etapas:
