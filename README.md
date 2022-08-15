@@ -15,28 +15,22 @@ ps:Descubra o segredo escondido nela!!!
 
 Antes de iniciar, se assegure que possui os requisitos abaixo:
 
-- <Requisito 1>
-- <Requisito 2>
-- <Requisito 3>
-- <Requisito 4>
-- <Requisito 5>
-
+- ""nodeJS"" 
+- ""npm v8.9.0""
+""
 ## Compilação/Configuração
 
 Para compilar/configurar este projeto, siga as seguintes etapas:
 
-- <Etapa 1>
-- <Etapa 2>
-- <Etapa 3>
-- <Etapa 4>
-- <Etapa 5>
+- ""npm run build""
+
 
 ## Instalação/Execução
 
 Para instalar/executar este projeto, siga as seguintes etapas:
 
-- <Etapa 1>
-- <Etapa 2>
-- <Etapa 3>
-- <Etapa 4>
-- <Etapa 5>
+- Clone o repositório do git.
+- digite no terminal ""cd .\Pokemon-Card\""
+- digite no terminal ""npm install"" - para instalar as dependências do projeto
+- execute o projeto digitando no terminal ""npm run dev""
+
