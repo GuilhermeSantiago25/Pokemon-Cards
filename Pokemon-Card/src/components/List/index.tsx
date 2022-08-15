@@ -9,11 +9,12 @@ import {
   Card,
   Typography,
 } from "@mui/material";
-import { Result, Pokemon, IProps } from "../../types/@types";
+import { Result, Pokemon, IPropsList } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
 import { LoaderAnimation } from "../index";
+import { maxWidth } from "@mui/system";
 
-const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
+const List: React.FC<IPropsList> = ({ setSelectedPokemon }) => {
   const [offset, setOffset] = useState(0);
   const { data, error, loading } = useFetch<Result>(
     `pokemon?limit=12&offset=${offset}/`,
@@ -21,7 +22,11 @@ const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
   );
 
   const nextPage = () => {
-    setOffset(offset + 12);
+    if (offset < 1140) {
+      setOffset(offset + 12);
+    } else {
+      setOffset(1152);
+    }
   };
   const prevPage = () => {
     if (offset > 12) {
@@ -32,14 +37,18 @@ const List: React.FC<IProps> = ({ setSelectedPokemon }) => {
   };
 
   return (
-    <Card sx={{ width: 300, height: 635 }}>
-      <Typography 
-          variant="h6"
-          color="primary"
-          component="p"
-          sx={{ alignSelf: "center", textAlign: "center" }}
-      >Pokemons</Typography>
-      <MaterialList sx={{ maxHeight: "90%", overflow: "hidden" }}>
+    <Card sx={{ width: 400, height: 635 }}>
+      <Typography
+        variant="h6"
+        color="primary"
+        component="p"
+        sx={{ alignSelf: "center", textAlign: "center" }}
+      >
+        Pokemons
+      </Typography>
+      <MaterialList
+        sx={{ minHeight: "90%", maxHeight: "90%", overflow: "hidden" }}
+      >
         {loading ? (
           <Box sx={{ width: 300, height: 576 }}>
             <LoaderAnimation />

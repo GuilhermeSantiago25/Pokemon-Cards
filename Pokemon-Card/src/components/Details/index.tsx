@@ -1,36 +1,38 @@
-import React, { useState, memo } from "react";
+import React, { useState,useEffect, memo } from "react";
 import {
-  Card,
   CardContent,
   CardMedia,
   Typography,
   Stack,
   Box,
+  Card,
 } from "@mui/material";
-
 import { Item, ProgressBar } from "../index";
-import { Pokemon, IProps } from "../../types/@types";
+import { Pokemon, IPropsDetail } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
 
-const Details: React.FC<IProps> = ({ selectedPokemon }) => {
+const Details: React.FC<IPropsDetail> = ({ selectedPokemon, setPikachuCounter, pikachuCounter }) => {
   const { data, error, loading } = useFetch<Pokemon>(
     `pokemon/${selectedPokemon?.name}`,
     "get"
   );
 
   return (
-    <Card sx={{ width: 400 }} hidden={data ? false : true} component="div">
+    <Card sx={{ width: 400 }} hidden={data ? false : true}>
       <CardMedia
         component="img"
         alt="Imagem Frontal"
-        sx={{padding: "1rem"}}
-        
+        sx={{ padding: "1rem" }}
         image={
-          data?.sprites &&
-          data?.sprites.other?.["official-artwork"].front_default
-            ? data?.sprites.other?.["official-artwork"].front_default
-            : data?.sprites && data?.sprites.front_default
+          (data?.sprites &&
+            data?.sprites.other?.["official-artwork"].front_default) ||
+          (data?.sprites && data?.sprites.front_default)
         }
+        onClick={() => {
+          if (selectedPokemon?.name === "pikachu") {
+            setPikachuCounter(pikachuCounter + 1);
+          }
+        }}
       />
       <Typography
         gutterBottom
@@ -49,7 +51,9 @@ const Details: React.FC<IProps> = ({ selectedPokemon }) => {
       >
         {data?.types &&
           data?.types.map((types: any) => (
-            <Item key={types.type.name}>{types.type.name}</Item>
+            <Item key={types.type.name} type={types.type.name}>
+              {types.type.name}
+            </Item>
           ))}
       </Stack>
       <CardContent>
