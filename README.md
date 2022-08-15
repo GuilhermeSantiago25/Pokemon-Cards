@@ -12,7 +12,7 @@ O projeto consiste em uma lista de Pokemons(pokedex) e ao clicar em um item da l
 link para o site
 <a href='pokemon-card-wine.vercel.app/'>Pokedex</a>
 
-hospedágem : vercel
+hospedagem : vercel
 
 ## Pré-requisitos
 
