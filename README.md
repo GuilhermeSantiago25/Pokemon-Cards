@@ -31,6 +31,6 @@ Para instalar/executar este projeto, siga as seguintes etapas:
 
 - Clone o repositório do git.
 - digite no terminal `cd .\Pokemon-Card\`
-- digite no terminal ""npm install"" - para instalar as dependências do projeto
+- digite no terminal `npm install` - para instalar as dependências do projeto
 - execute o projeto digitando no terminal `npm run dev`
 
