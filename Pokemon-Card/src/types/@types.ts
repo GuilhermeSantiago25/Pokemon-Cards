@@ -1,3 +1,31 @@
+import { PaperProps } from "@mui/material";
+export interface ItemType extends PaperProps {
+  type:
+    | "bug"
+    | "dark"
+    | "dragon"
+    | "electric"
+    | "fairy"
+    | "fighting"
+    | "fire"
+    | "flying"
+    | "ghost"
+    | "grass"
+    | "ground"
+    | "ice"
+    | "normal"
+    | "poison"
+    | "psychic"
+    | "rock"
+    | "steel"
+    | "water";
+}
+
+export interface IPropsProgressBar {
+  value: number;
+  atribute: string;
+}
+
 export interface Result {
   count: number;
   next: string | null;
@@ -192,7 +220,7 @@ export interface Stat {
 
 export interface Type {
   slot: number;
-  type: Type[];
+  type: Type;
   name:
     | "bug"
     | "dark"
@@ -212,4 +240,7 @@ export interface Type {
     | "rock"
     | "steel"
     | "water";
+}
+export interface Types {
+
 }

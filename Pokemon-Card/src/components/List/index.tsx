@@ -12,7 +12,6 @@ import {
 import { Result, Pokemon, IPropsList } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
 import { LoaderAnimation } from "../index";
-import { maxWidth } from "@mui/system";
 
 const List: React.FC<IPropsList> = ({ setSelectedPokemon }) => {
   const [offset, setOffset] = useState(0);
@@ -37,7 +36,7 @@ const List: React.FC<IPropsList> = ({ setSelectedPokemon }) => {
   };
 
   return (
-    <Card sx={{ width: 400, height: 635 }}>
+    <Card sx={{ width: '25rem', height: '39.688rem' }}>
       <Typography
         variant="h6"
         color="primary"
@@ -50,7 +49,7 @@ const List: React.FC<IPropsList> = ({ setSelectedPokemon }) => {
         sx={{ minHeight: "90%", maxHeight: "90%", overflow: "hidden" }}
       >
         {loading ? (
-          <Box sx={{ width: 300, height: 576 }}>
+          <Box sx={{ width: '18.75rem', height: '36rem' }}>
             <LoaderAnimation />
           </Box>
         ) : error ? (

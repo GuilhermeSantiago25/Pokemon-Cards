@@ -6,8 +6,7 @@ import { Pokemon } from "../../types/@types";
 const Home: React.FC = () => {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   const [pikachuCounter, setPikachuCounter] = useState(0);
-  const matches = useMediaQuery("(min-width:950px)");
-  console.log(matches);
+  const matches = useMediaQuery("(min-width:59.375rem)");
 
   return (
     <Container
