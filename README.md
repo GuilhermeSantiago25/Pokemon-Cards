@@ -1,12 +1,15 @@
 # Pokemon-Cards -Desafio SomoS
 
-Linguagem: `<TypeScript>`
+Linguagem: `TypeScript`
 
-Framework: `<React>`
+Framework: `React`
 
 ## Descrição
 
-<Informe resumidamente o que é o projeto>
+O projeto consiste em uma lista de Pokemons(pokedex) e ao clicar em um item da lista exibe seus detalhes. 
+ps:Descubra o segredo escondido nela!!!
+
+### pokemon-card-wine.vercel.app/
 
 ## Pré-requisitos
 
