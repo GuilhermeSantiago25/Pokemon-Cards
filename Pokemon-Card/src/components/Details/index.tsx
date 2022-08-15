@@ -1,4 +1,4 @@
-import React, { useState,useEffect, memo } from "react";
+import React, { memo } from "react";
 import {
   CardContent,
   CardMedia,
@@ -8,17 +8,21 @@ import {
   Card,
 } from "@mui/material";
 import { Item, ProgressBar } from "../index";
-import { Pokemon, IPropsDetail } from "../../types/@types";
+import { Pokemon, IPropsDetail, Type, Stat } from "../../types/@types";
 import { useFetch } from "../../hooks/useFetch";
 
-const Details: React.FC<IPropsDetail> = ({ selectedPokemon, setPikachuCounter, pikachuCounter }) => {
-  const { data, error, loading } = useFetch<Pokemon>(
+const Details: React.FC<IPropsDetail> = ({
+  selectedPokemon,
+  setPikachuCounter,
+  pikachuCounter,
+}) => {
+  const { data } = useFetch<Pokemon>(
     `pokemon/${selectedPokemon?.name}`,
     "get"
   );
 
   return (
-    <Card sx={{ width: 400 }} hidden={data ? false : true}>
+    <Card sx={{ width: '25rem' }} hidden={data ? false : true}>
       <CardMedia
         component="img"
         alt="Imagem Frontal"
@@ -50,7 +54,7 @@ const Details: React.FC<IPropsDetail> = ({ selectedPokemon, setPikachuCounter, p
         sx={{ justifyContent: "center" }}
       >
         {data?.types &&
-          data?.types.map((types: any) => (
+          data?.types.map((types: Type) => (
             <Item key={types.type.name} type={types.type.name}>
               {types.type.name}
             </Item>
@@ -58,7 +62,7 @@ const Details: React.FC<IPropsDetail> = ({ selectedPokemon, setPikachuCounter, p
       </Stack>
       <CardContent>
         {data?.stats &&
-          data?.stats.map((stats: any) => (
+          data?.stats.map((stats: Stat) => (
             <Box
               key={stats.stat.name}
               sx={{

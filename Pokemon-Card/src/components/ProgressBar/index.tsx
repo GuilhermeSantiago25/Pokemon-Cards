@@ -5,6 +5,8 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 
+import {IPropsProgressBar} from "../../types/@types";
+
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: "1rem",
   borderRadius: 5,
@@ -21,8 +23,8 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-export default function ProgressBar({ value, atribute }: any) {
-  function returnMaxValue(atribute: any) {
+export default function ProgressBar({ value, atribute }: IPropsProgressBar) {
+  function returnMaxValue(atribute: string) {
     switch (atribute) {
       case "hp":
         return 255;
@@ -43,7 +45,7 @@ export default function ProgressBar({ value, atribute }: any) {
 
   let MIN = 0;
   let MAX = returnMaxValue(atribute);
-  const normalise = (value: any) => ((value - MIN) * 100) / (MAX - MIN);
+  const normalise = (value: number) => ((value - MIN) * 100) / (MAX - MIN);
   return (
     <Box>
       <BorderLinearProgress variant="determinate" value={normalise(value)} />

@@ -1,27 +1,6 @@
 import React from "react";
-import { Paper, styled, PaperProps } from "@mui/material";
-
-interface ItemType extends PaperProps {
-  type:
-    | "bug"
-    | "dark"
-    | "dragon"
-    | "electric"
-    | "fairy"
-    | "fighting"
-    | "fire"
-    | "flying"
-    | "ghost"
-    | "grass"
-    | "ground"
-    | "ice"
-    | "normal"
-    | "poison"
-    | "psychic"
-    | "rock"
-    | "steel"
-    | "water";
-}
+import { Paper, styled } from "@mui/material";
+import { ItemType } from "../../types/@types";
 
 export const Item = styled(Paper)<ItemType>(({ theme, type }) => ({
   backgroundColor: theme.colors.type[type],
