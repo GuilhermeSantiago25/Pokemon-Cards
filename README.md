@@ -24,7 +24,7 @@ Antes de iniciar, se assegure que possui os requisitos abaixo:
 
 Para compilar/configurar este projeto, siga as seguintes etapas:
 
-- digite no terminal `cd .\Pokemon-Card\`
+`navegue para a pasta root do projeto e execute os comandos :`
 - digite no terminal `npm install` - para instalar as dependências do projeto
 - digite no terminal `npm run build` - para compilar o projeto
 
@@ -33,8 +33,7 @@ Para compilar/configurar este projeto, siga as seguintes etapas:
 
 Para instalar/executar este projeto, siga as seguintes etapas:
 
-- Clone o repositório do git.
-- digite no terminal `cd .\Pokemon-Card\`
+`navegue para a pasta root do projeto e execute os comandos :`
 - digite no terminal `npm install` - para instalar as dependências do projeto
 - execute o projeto digitando no terminal `npm run dev`
 
