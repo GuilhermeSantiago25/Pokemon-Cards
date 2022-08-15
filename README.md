@@ -17,7 +17,7 @@ hospedagem : vercel
 
 Antes de iniciar, se assegure que possui os requisitos abaixo:
 
-- `nodeJS` 
+- `nodeJS v17.3.1` 
 - `npm v8.9.0`
 
 ## Compilação/Configuração
