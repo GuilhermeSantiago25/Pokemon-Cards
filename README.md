@@ -9,7 +9,7 @@ Framework: `React`
 O projeto consiste em uma lista de Pokemons(pokedex) e ao clicar em um item da lista exibe seus detalhes. 
 ps:Descubra o segredo escondido nela!!!
 
-<a href='pokemon-card-wine.vercel.app/' />
+<a href='pokemon-card-wine.vercel.app/'>Pokedex</a>
 
 ## Pré-requisitos
 
