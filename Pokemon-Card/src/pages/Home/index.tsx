@@ -1,29 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Box } from "@mui/material";
-import {List, Details} from "../../components";
+import { List, Details } from "../../components";
 import { Pokemon } from "../../types/@types";
 
 const Home: React.FC = () => {
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-  console.log(selectedPokemon);
+  const [pikachuCounter, setPikachuCounter] = useState(0);
+  
   return (
-    <Container>
+    <Container
+      fixed
+      sx={{
+        backgroundImage: pikachuCounter >= 3 ?
+          "url(https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg)" : null
+      }}
+    >
       <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        display="flex"
+        justifyContent={"center"}
+        alignItems={"center"}
+        sx={{ height: "100vh", width: "100vh" }}
       >
-        <Box>
-          <h1>Pokedex</h1>
-          <p>Lista de Pokemons</p>
+        <Box marginX={1}>
           <List setSelectedPokemon={setSelectedPokemon} />
         </Box>
-        <Box>
-          <h1>Detalhes</h1>
-          <p>Detalhes do Pokemon</p>
-          <Details selectedPokemon={selectedPokemon}/>
+        <Box marginX={1}>
+          <Details
+            selectedPokemon={selectedPokemon}
+            pikachuCounter={pikachuCounter}
+            setPikachuCounter={setPikachuCounter}
+          />
         </Box>
       </Box>
     </Container>

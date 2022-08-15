@@ -5,7 +5,15 @@ export interface Result {
   results: Pokemon[];
 }
 
-export interface IProps {
+export interface IPropsDetail {
+  selectedPokemon?: Pokemon | null;
+  setSelectedPokemon?: React.Dispatch<React.SetStateAction<Pokemon | null>>;
+  pikachuCounter: number;
+  setPikachuCounter: React.Dispatch<React.SetStateAction<number>>
+  pokemon?: Pokemon;
+  Result?: Result;
+}
+export interface IPropsList {
   selectedPokemon?: Pokemon | null;
   setSelectedPokemon?: React.Dispatch<React.SetStateAction<Pokemon | null>>;
   pokemon?: Pokemon;
@@ -29,7 +37,7 @@ export interface Pokemon {
   species?: Species;
   sprites?: Sprites;
   stats?: Stat[];
-  types?: Type[];
+  types: Type[];
   weight?: number;
 }
 
@@ -184,6 +192,24 @@ export interface Stat {
 
 export interface Type {
   slot: number;
-  type: string | null;
-  name: string | null;
+  type: Type[];
+  name:
+    | "bug"
+    | "dark"
+    | "dragon"
+    | "electric"
+    | "fairy"
+    | "fighting"
+    | "fire"
+    | "flying"
+    | "ghost"
+    | "grass"
+    | "ground"
+    | "ice"
+    | "normal"
+    | "poison"
+    | "psychic"
+    | "rock"
+    | "steel"
+    | "water";
 }
