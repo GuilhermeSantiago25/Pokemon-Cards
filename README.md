@@ -22,7 +22,7 @@ Antes de iniciar, se assegure que possui os requisitos abaixo:
 
 Para compilar/configurar este projeto, siga as seguintes etapas:
 
-- `npm run build`
+- digite no terminal `npm run build`
 
 
 ## Instalação/Execução
